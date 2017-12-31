@@ -1,0 +1,39 @@
+%!TEX TS-program = rake
+\documentclass[10pt,letterpaper]{moderncv/moderncv}
+
+\input{preamble}
+
+%-----------------------------------------------------------------------------
+% Top
+%-----------------------------------------------------------------------------
+\begin{document}
+\maketitle
+\vspace{-3em}    % Omit if quote is included
+
+\input{Sections/education}
+\input{Sections/skills}
+\input{Sections/professional-experience}
+\input{Sections/research-experience}
+\input{Sections/software}
+\input{Sections/awards}
+\input{Sections/specialized-courses}
+\input{Sections/projects}
+\input{Sections/memberships}
+\input{Sections/university-activities}
+\input{Sections/volunteering}
+
+%-----------------------------------------------------------------------------
+% Publications
+%-----------------------------------------------------------------------------
+\section{Publications}\small
+	\nocitePaper{*}
+	\bibliographystylePaper{plain-url-inline-revchron}
+	\bibliographyPaper{Bibliographies/Papers}
+
+	\nocitePoster{*}
+	\bibliographystylePoster{plain-url-inline-revchron}
+	\bibliographyPoster{Bibliographies/Posters}
+
+	% Restore subsection command in case something happens after here.
+	\let\subsection\oldsubsection
+\end{document}
