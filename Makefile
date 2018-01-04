@@ -12,10 +12,14 @@ multibib_names = $(shell \
 	| uniq \
 	| sed 's/\\bibliography/"/;s/{/"/')
 
-web_repo=dinatale2.github.io
+web_repo=/media/sf_Shared/dinatale2.github.io
 
 # Any PDF is a valid target, but this is the default one.
-all: giuseppe-cv.pdf
+all: cv resume
+
+cv: giuseppe-cv.pdf
+
+resume: giuseppe-resume.pdf
 
 %.pdf: %.tex Sections/*.tex Bibliographies/*.bib
 	$(latex) $*
@@ -30,10 +34,12 @@ all: giuseppe-cv.pdf
 	$(latex) $*
 
 upload:
-	cp giuseppe-cv.pdf $(web_repo)/cv/giuseppe-cv.pdf
+	cp giuseppe-cv.pdf $(web_repo)/files/giuseppe-cv.pdf
+	cp giuseppe-resume.pdf $(web_repo)/files/giuseppe-resume.pdf
 	cd $(web_repo) && \
-		git add cv/giuseppe-cv.pdf && \
-		git commit -m "CV update" && \
+		git add files/giuseppe-cv.pdf && \
+		git add files/giuseppe-resume.pdf && \
+		git commit -m "Resume/CV update" && \
 		git push
 
 clean:
