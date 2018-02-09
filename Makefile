@@ -12,7 +12,7 @@ multibib_names = $(shell \
 	| uniq \
 	| sed 's/\\bibliography/"/;s/{/"/')
 
-web_repo=/media/sf_Shared/dinatale2.github.io
+web_repo=/media/sf_Shared/repos/dinatale2.github.io
 
 # Any PDF is a valid target, but this is the default one.
 all: cv resume
